@@ -1,9 +1,9 @@
 <script>
 	import { getContext } from 'svelte';
-	let { id = $bindable() } = $props();
+	let { children, id = $bindable() } = $props();
 	$inspect(id);
 
-	const { isOpen } = getContext(`pop-${id}`);
+	const { isOpen, triggerRect } = getContext(`pop-${id}`);
 
 	function handleClick(e) {
 		const rect = e.currentTarget.getBoundingClientRect();
@@ -13,5 +13,5 @@
 </script>
 
 <div role="presentation" onkeydown={handleClick} onclick={handleClick}>
-	<slot />
+	{@render children?.()}
 </div>

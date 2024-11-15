@@ -10,5 +10,5 @@
 </script>
 
 <div class="relative inline-block">
-	<slot {id} />
+	{@render children({ id })}
 </div>

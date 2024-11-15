@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import BorderAnim1 from '../border/border-anim1.svelte';
 
-	let { children, className, style, borderStart, borderEnd } = $props();
+	let { children, className, style, borderStart, borderEnd, ...rest } = $props();
 	let card;
 	let width = $state(),
 		height = $state();
@@ -14,9 +14,9 @@
 	});
 </script>
 
-<div class="{className} card" {style} bind:this={card}>
+<div class="{className} card" bind:this={card} {style} {rest}>
 	<BorderAnim1 {width} {height} {borderStart} {borderEnd} />
-	{@render children()}
+	{@render children?.()}
 </div>
 
 <style>

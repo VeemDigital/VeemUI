@@ -4,29 +4,27 @@
 
 	let { children, id } = $props();
 	let { triggerRect, isOpen } = getContext(`pop-${id}`);
+	$inspect($isOpen);
 
 	let contentElement;
-	// let open = false;
-	let top = 0;
-	let left = 0;
+	let top = '0';
+	let left = '0';
 	$effect(() => {
-		// open = isOpen;
-		// console.log(isOpen);
-		// if (triggerRect) {
-		// top = triggerRect.y;
-		// left = triggerRect.x;
-		// }
+		if ($triggerRect != null) {
+			top = $triggerRect.y;
+			left = $triggerRect.x;
+		}
 	});
 </script>
 
-{#if isOpen}
+{#if $isOpen}
 	<div
 		bind:this={contentElement}
 		class="popover-content"
 		style="top: {top}px; left: {left}px;"
 		transition:fade
 	>
-		{@render children()}
+		{@render children?.()}
 	</div>
 {/if}
 
