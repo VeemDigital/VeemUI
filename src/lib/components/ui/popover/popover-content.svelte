@@ -31,6 +31,6 @@
 <style>
 	.popover-content {
 		position: fixed;
-		background-color: #000;
+		/* background-color: #000; */
 	}
 </style>

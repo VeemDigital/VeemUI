@@ -17,7 +17,7 @@
 		mask-clip: padding-box, border-box !important;
 		-webkit-mask-clip: padding-box, border-box !important;
 		mask-composite: intersect !important;
-		border: 1px solid transparent;
+		border: 1px solid #333;
 		box-sizing: border-box;
 		border-radius: inherit;
 		z-index: -1;
@@ -26,8 +26,8 @@
 	.animate-border-1::after {
 		content: '';
 		position: absolute;
-		width: 50px;
-		height: 50px;
+		width: 150px;
+		height: 150px;
 		background: linear-gradient(
 			to left,
 			var(--border-anim-color-1),
@@ -38,6 +38,9 @@
 		offset-distance: 0%;
 		animation: border-beam 10s infinite linear;
 		aspect-ratio: 1 / 1;
+		box-sizing: border-box;
+		border-radius: inherit;
+		border: solid 1px #333;
 	}
 
 	@keyframes border-beam {

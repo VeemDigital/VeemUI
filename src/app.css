@@ -20,6 +20,7 @@
 	--ui-theme-second-7: #00ffc5;
 	--ui-theme-second-8: #00ffc5;
 	--ui-theme-second-9: #00ffc5;
+	--ui-background-color-2: #333;
 	--ui-theme-border-1: #333;
 	--ui-theme-btn-bg-1: #fff;
 	--ui-theme-border-radius: 16px;
@@ -30,7 +31,8 @@
 }
 
 body {
-	background: var(--background);
+	/* background: var(--background); */
+	background-image: url('https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?cs=srgb&dl=pexels-eberhardgross-1287145.jpg&fm=jpg');
 	font-family: var(--ui-theme-font-family);
 	font-font-feature-settings: var(--ui-theme-font-feature);
 	font-ont-variation-settings: var(--ui-theme-font-variation);

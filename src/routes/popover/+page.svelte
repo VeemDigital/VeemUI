@@ -1,6 +1,7 @@
 <script>
-	// import '../../app.css';
+	import '../../app.css';
 	import '$lib/css/css/main.css';
+	import '$lib/css/index.js';
 	import { Popover } from '$lib/components/ui/popover/index';
 	import Calendar from '$lib/components/ui/calendar/calendar.svelte';
 	import CardContainer from '$lib/components/ui/card/card-container.svelte';
@@ -13,10 +14,12 @@
 <div class="container vm-m-auto-l">
 	<Popover.Container>
 		{#snippet children({ id })}
-			<Popover.Trigger {id}><Calendar bind:chooseDate enableDays={[1, 2, 4]} /></Popover.Trigger>
+			<Popover.Trigger {id}
+				><Calendar class="vm-glass-bg" bind:chooseDate enableDays={[1, 2, 4]} /></Popover.Trigger
+			>
 			<Popover.Content {id}>
-				<CardContainer style="background-color: red;"
-					><h1>Selection du temps</h1>
+				<CardContainer borderStart="#fff" borderEnd="#000" class="vm-glass-bg">
+					<h1>Selection du temps</h1>
 					<h5 style="color: #666;">Choisir la selection du temps pour le rendez-vous souhaiter.</h5>
 					<Select
 						triggerName="Selectionner la durées"

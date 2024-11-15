@@ -1,10 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
-	/** @type {{ chooseDate: Date, enableDays?: number[] }} */
-	let {
-		chooseDate = $bindable(),
-		enableDays = [] // Array of days to enable (0 = Sunday, 6 = Saturday)
-	} = $props();
+	// Array of days to enable (0 = Sunday, 6 = Saturday)
+	let { class: className, style, chooseDate = $bindable(), enableDays = [], ...rest } = $props();
 
 	let currentYear, currentMonth;
 	let stringMount = $state('');
@@ -153,7 +150,7 @@
 	});
 </script>
 
-<div class="calendar">
+<div class="{className} calendar" {style} {rest}>
 	<div class="calendar-controls">
 		<button aria-label="calendar-before" onclick={previousMonth}>
 			<svg
@@ -221,24 +218,10 @@
 <style>
 	.calendar {
 		padding: 2vw;
-		background-color: #000;
-		color: #fff;
+		/* background-color: var(--ui-background-color-2); */
+		color: var(--ui-theme-text-1);
 		border-radius: 10px;
-		font-family:
-			geist-sans,
-			ui-sans-serif,
-			system-ui,
-			sans-serif,
-			'Apple Color Emoji',
-			'Segoe UI Emoji',
-			Segoe UI Symbol,
-			'Noto Color Emoji';
-		font-feature-settings: normal;
-		font-variation-settings: normal;
-		border: solid 1px #333;
-		font-family: 1px;
-		/* width: 30%; */
-		font-size: 14px;
+		border: solid 1px var(--ui-theme-border-1);
 	}
 
 	.calendar-controls {

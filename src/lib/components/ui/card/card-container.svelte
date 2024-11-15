@@ -2,28 +2,34 @@
 	import { onMount } from 'svelte';
 	import BorderAnim1 from '../border/border-anim1.svelte';
 
-	let { children, className, style, borderStart, borderEnd, ...rest } = $props();
+	let { children, class: className, style, borderStart, borderEnd, ...rest } = $props();
 	let card;
 	let width = $state(),
 		height = $state();
 
 	onMount(() => {
 		const rect = card.getBoundingClientRect();
-		width = rect.width;
-		height = rect.height;
+		width = rect.width - 2;
+		height = rect.height - 2;
+		console.log(rect);
 	});
 </script>
 
-<div class="{className} card" bind:this={card} {style} {rest}>
+<div class="{className} " bind:this={card} {style} {rest}>
 	<BorderAnim1 {width} {height} {borderStart} {borderEnd} />
-	{@render children?.()}
+	<div class="card">
+		{@render children?.()}
+	</div>
 </div>
 
 <style>
 	.card {
 		position: relative;
 		border-radius: 1rem;
-		border: solid 1px #333;
+		/* border: solid 1px #333; */
 		z-index: 1;
+		padding: 2vw;
+		box-sizing: border-box;
+		/* border-radius: inherit; */
 	}
 </style>
