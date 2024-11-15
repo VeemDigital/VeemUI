@@ -1,9 +1,9 @@
 <script>
 	import { getContext } from 'svelte';
+	let { id = $bindable() } = $props();
+	$inspect(id);
 
-	export let open = false;
-
-	const { isOpen, triggerRect } = getContext('popover');
+	const { isOpen } = getContext(`pop-${id}`);
 
 	function handleClick(e) {
 		const rect = e.currentTarget.getBoundingClientRect();

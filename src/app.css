@@ -1,5 +1,40 @@
+:root {
+	--background: #000;
+	--ui-theme-text-1: #fff;
+	--ui-theme-text-2: #555;
+	--ui-theme-base-1: #8600ff;
+	--ui-theme-base-2: #8600ff;
+	--ui-theme-base-3: #8600ff;
+	--ui-theme-base-4: #8600ff;
+	--ui-theme-base-5: #8600ff;
+	--ui-theme-base-5: #8600ff;
+	--ui-theme-base-7: #8600ff;
+	--ui-theme-base-8: #8600ff;
+	--ui-theme-base-9: #8600ff;
+	--ui-theme-second-1: #00ffc5;
+	--ui-theme-second-2: #00ffc5;
+	--ui-theme-second-3: #00ffc5;
+	--ui-theme-second-4: #00ffc5;
+	--ui-theme-second-5: #00ffc5;
+	--ui-theme-second-5: #00ffc5;
+	--ui-theme-second-7: #00ffc5;
+	--ui-theme-second-8: #00ffc5;
+	--ui-theme-second-9: #00ffc5;
+	--ui-theme-border-1: #333;
+	--ui-theme-btn-bg-1: #fff;
+	--ui-theme-border-radius: 16px;
+	--ui-theme-font-family: geist-sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+		'Segoe UI Emoji', Segoe UI Symbol, 'Noto Color Emoji';
+	--ui-theme-font-feature: font-feature-settings: normal;
+	--ui-theme-font-variation: font-variation-settings: normal;
+}
+
 body {
+	background: var(--background);
+	font-family: var(--ui-theme-font-family);
+	font-font-feature-settings: var(--ui-theme-font-feature);
+	font-ont-variation-settings: var(--ui-theme-font-variation);
+	color: var(--ui-theme-text-1);
 	padding: 0;
 	margin: 0;
-	background-color: #000;
 }

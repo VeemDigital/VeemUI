@@ -1,17 +1,14 @@
 <script>
-	import { setContext } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
-
+	let { children } = $props();
+	let id = $state(crypto.randomUUID().toString().slice(0, 10));
 	const isOpen = writable(false);
 	const triggerRect = writable(null);
-
-	setContext('popover', {
-		isOpen,
-		triggerRect,
-		close: () => isOpen.set(false)
-	});
+	setContext(`pop-${id}`, { isOpen, triggerRect });
+	onMount(() => {});
 </script>
 
 <div class="relative inline-block">
-	<slot />
+	<slot {id} />
 </div>

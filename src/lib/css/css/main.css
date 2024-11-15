@@ -1,0 +1,30 @@
+.vm-flex {
+	display: flex;
+}
+
+.vm-flex-col {
+	display: flex;
+	flex-direction: column;
+}
+
+.vm-center {
+	align-items: center;
+	vertical-align: center;
+	text-align: center;
+}
+
+.vm-m-auto {
+	margin: auto;
+}
+
+.vm-m-auto-l {
+	margin-left: auto;
+}
+
+.vm-m-auto-r {
+	margin-right: auto;
+}
+
+.vm-p-1 {
+	padding: 1vw;
+}
