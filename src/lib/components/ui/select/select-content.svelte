@@ -1,14 +1,27 @@
 <script>
+	import { Popover } from '$lib/components/ui/popover/index';
+	import Button from '../button/button.svelte';
+
 	let { triggerName, items } = $props();
 </script>
 
-<select name="item" id="items">
-	<option selected="selected">{triggerName}</option>
+<button>select ...:</button>
+<!-- <select name="item" id="items"> -->
+<!-- <option selected="selected">{triggerName}</option> -->
+<Popover.Container>
+	{#snippet children({ id })}
+		<Popover.Trigger {id}>
+			<Button>{triggerName}</Button>
+		</Popover.Trigger>
+		<Popover.Content {id}>
+			{#each items as item}
+				<Button class="vm-flex" value={item.value}>{item.label}</Button>
+			{/each}
+		</Popover.Content>
+	{/snippet}
+</Popover.Container>
 
-	{#each items as item}
-		<option value={item.value}>{item.label}</option>
-	{/each}
-</select>
+<!-- </select> -->
 
 <style>
 	select {

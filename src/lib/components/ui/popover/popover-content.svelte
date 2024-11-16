@@ -3,27 +3,25 @@
 	import { fade } from 'svelte/transition';
 
 	let { children, id } = $props();
-	let { triggerRect, isOpen } = getContext(`pop-${id}`);
-	$inspect($isOpen);
+	const { target, isOpen } = getContext(`pop-${id}`);
 
 	let contentElement;
 	let top = '0';
 	let left = '0';
+
 	$effect(() => {
-		if ($triggerRect != null) {
-			top = $triggerRect.y;
-			left = $triggerRect.x;
+		if ($target != null) {
+			let rect = $target.getBoundingClientRect();
+			console.log($target);
+			top = rect.top + rect.height;
+			left = rect.left;
+			contentElement.style.left = left;
 		}
 	});
 </script>
 
 {#if $isOpen}
-	<div
-		bind:this={contentElement}
-		class="popover-content"
-		style="top: {top}px; left: {left}px;"
-		transition:fade
-	>
+	<div bind:this={contentElement} class="popover-content" transition:fade>
 		{@render children?.()}
 	</div>
 {/if}

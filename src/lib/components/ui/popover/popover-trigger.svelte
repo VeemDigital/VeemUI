@@ -1,17 +1,18 @@
 <script>
-	import { getContext } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 	let { children, id = $bindable() } = $props();
 	$inspect(id);
+	let elem;
+	let targetElem;
 
-	const { isOpen, triggerRect } = getContext(`pop-${id}`);
+	const { isOpen, target } = getContext(`pop-${id}`);
 
 	function handleClick(e) {
-		const rect = e.currentTarget.getBoundingClientRect();
-		triggerRect.set(rect);
+		target.set(e.currentTarget);
 		isOpen.update((value) => !value);
 	}
 </script>
 
-<div role="presentation" onkeydown={handleClick} onclick={handleClick}>
+<div bind:this={elem} role="presentation" onclick={handleClick}>
 	{@render children?.()}
 </div>

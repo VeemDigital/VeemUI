@@ -1,5 +1,5 @@
 <script>
-	let { className, style, children } = $props();
+	let { class: className, style, children } = $props();
 </script>
 
 <button class={className} {style}>{@render children()}</button>
